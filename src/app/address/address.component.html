@@ -1,0 +1,24 @@
+<h2>address</h2>
+<div [formGroup]="addressForm">
+  <div>
+    <label for="address">Address: </label>
+    <input formControlName="address" id="address" />
+    <span *ngIf="addressForm.get('address').getError('required')">
+      Cannot is null
+    </span>
+  </div>
+  <div>
+    <label for="number">Number: </label>
+    <input type="number" formControlName="number" id="number" />
+    <span *ngIf="addressForm.get('number').getError('required')">
+      Cannot is null
+    </span>
+  </div>
+  <div>
+    <label for="uf">UF: </label>
+    <input type="uf" formControlName="uf" id="uf" />
+    <span *ngIf="addressForm.get('uf').getError('required')">
+      Cannot is null
+    </span>
+  </div>
+</div>

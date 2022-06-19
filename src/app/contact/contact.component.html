@@ -1,0 +1,17 @@
+<h2>contacts</h2>
+<div [formGroup]="contactForm">
+  <div>
+    <label for="email">email: </label>
+    <input formControlName="email" type="text" id="email" />
+  </div>
+  <div>
+    <label for="number">number: </label>
+    <input formControlName="number" type="text" id="number" />
+    <button type="button" (click)="addContact()">adicionar</button>
+  </div>
+  <ul>
+    <li *ngFor="let contact of contacts.value">
+      {{ contact.email }} - {{ contact.number }}
+    </li>
+  </ul>
+</div>

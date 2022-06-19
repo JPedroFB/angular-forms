@@ -1,0 +1,13 @@
+<h1>Company</h1>
+
+<form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="corporateName">Corporate name: </label>
+    <input formControlName="corporateName" id="corporateName" />
+  </div>
+
+  <app-address [parentForm]="companyFormInit"></app-address>
+  <app-contact [parentForm]="companyFormInit"></app-contact>
+
+  <button type="submit">Save</button>
+</form>
