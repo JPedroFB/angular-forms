@@ -35,6 +35,8 @@ export class ContactComponent implements OnInit {
     if (initValue) this.editMode(initValue);
 
     companyForm.setControl('contacts', this.contactForm);
+
+    this.sub(companyForm);
   }
 
   editMode({ contact }) {
@@ -48,5 +50,12 @@ export class ContactComponent implements OnInit {
   addContact() {
     this.contacts.push(this.contactForm);
     this.contactForm = this.formBuilder.group(this.contactFormDefault);
+  }
+
+  sub(companyForm: FormGroup) {
+    companyForm.get('address').valueChanges.subscribe((value) => {
+      // this.contactForm.patchValue({ email: value });
+      console.log(value);
+    });
   }
 }
