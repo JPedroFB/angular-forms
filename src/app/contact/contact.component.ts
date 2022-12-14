@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import ValidatorsCustom from '../../utils/validators-custom';
 
 @Component({
   selector: 'app-contact',
@@ -22,7 +23,10 @@ export class ContactComponent implements OnInit {
 
   contactFormDefault = {
     email: [null, Validators.required],
-    number: null,
+    number: [
+      null,
+      ValidatorsCustom.setOnlyNumber,
+    ],
   };
 
   contactForm = this.formBuilder.group(this.contactFormDefault);
@@ -48,6 +52,7 @@ export class ContactComponent implements OnInit {
   }
 
   addContact() {
+    console.log(this.contactForm.get('number'));
     this.contacts.push(this.contactForm);
     this.contactForm = this.formBuilder.group(this.contactFormDefault);
   }
